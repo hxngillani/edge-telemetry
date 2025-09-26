@@ -20,8 +20,11 @@ lint:
 
 # --- Workload deployment ---
 apply:
+	@echo "[INFO] 📦 Creating namespace..."
+	kubectl apply -f deployments/namespace.yaml
 	@echo "[INFO] 📦 Applying telemetry stack..."
-	kubectl apply -f deployments/
+	kubectl apply -f deployments/ --recursive
+
 
 delete:
 	@echo "[INFO] 🗑️ Deleting telemetry stack..."
